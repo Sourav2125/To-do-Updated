@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+  
+<hr style="background-color: firebrick;">
+<div class="col-sm-4 main">
+<form [formGroup]="signupform"  (ngSubmit)="signup()">
+  <h1 style="text-align: center; padding-top: 20px;color: blue;"><u>Sign Up</u></h1>
+  
+    <div class="form-group">
+        <label >First Name</label>
+        <input  type="text"   class="form-control" formControlName="first" id="exampleInputname" name="first" >  
+        <span *ngIf="first.invalid && first.touched" class="error">Please fill the first name!</span> 
+    </div>
+    <div class="form-group">
+        <label >Last Name</label>
+        <input  type="text"   class="form-control" formControlName="last" id="exampleInputlast" name="last" >  
+        <span *ngIf="last.invalid && last.touched" class="error">Please fill the last name!</span> 
+    </div>
+    <div class="form-group">
+        <label >Email Id</label>
+        <input  type="email"   class="form-control"  formControlName="email" id="signupemail" name="email" >  
+        <span *ngIf="email.invalid && email.touched" class="error">Email required!</span> 
+    </div>
+      
+      <div class="form-group">
+        <label>Password</label>
+        <input  type="password"  class="form-control" formControlName="password" id="signuppassword" name="password">
+        <span *ngIf="password.invalid && password.touched" class="error">Password required!</span> 
+      </div>
+     <div>
+         <label style="font-size: medium;font-weight: bold;">Gender: &nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="inlineRadio1" value="Male" checked>
+        <label class="form-check-label" for="inlineRadio1">Male</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="inlineRadio2" value="Female">
+        <label class="form-check-label" for="inlineRadio2">Female</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" formControlName="gender" id="inlineRadio3" value="Other" >
+        <label class="form-check-label" for="inlineRadio3">Other</label>
+      </div>
+    </div>
+    <br>
+      <button  type="submit" [disabled]="signupform.invalid" class="btn btn-primary">Submit</button>
+      <br>&nbsp;
+</form>
+</div>
+
+</body>
+</html>
+
